@@ -1,6 +1,12 @@
+html{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
 body {
     background-color: black;
-    font-family: sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -381,7 +387,8 @@ body {
     @media screen and (min-width: 480px){
         .main-page{
             width: 100%;
-            position: absolute;
+            height:100%;
+            position: relative;
         }
 
         #poster{
@@ -395,19 +402,13 @@ body {
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 10vh;
             background: #000;
             color: white;
             display: flex;
             align-items: center;
             padding: 0 1em;
             z-index: 1;
-        }
-        
-        /* サイト名 */
-        .site-title {
-            margin-left: 1em;
-            font-size: 1.2em;
         }
         
         /* ハンバーガー */
@@ -422,7 +423,7 @@ body {
         /* サイドメニュー */
         .side-menu {
             position: fixed;
-            top: 80px; /* ナビバーの下 */
+            top: 10vh; /* ナビバーの下 */
             left: -200px;
             width: 200px;
             height: 100%;
@@ -452,37 +453,37 @@ body {
             left: 0;
         }
         
-        /* 本文マージン調整 */
+        /* 本文パディング調整 */
         main {
-            padding-top: 80px;
+            padding-top: 10vh;
+            height: 100%;
         }
         /*#endregion*/
 
            .split-screen {
-            height: 92vh;
-            width: 100vw;
+            height: 100%;
+            width: 100%;
           }
           
           .left-panel,
           .right-panel {
-            height: 100%;
+            height: 90vh;
             overflow-y: auto; /* ← スクロール有効 */
+            text-align: center;
           }
           
           .left-panel {
             width: 35%;
-            height: 100%;
             left: 0;
             position: absolute;
-            background: 000;
+            background: #000;
           }
           
           .right-panel {
             width: 65%;
-            height: 100%;
             right: 0;
             position: absolute;
-            background: 000;
+            background: #FFF;
           }
 
           p{
@@ -496,18 +497,150 @@ body {
             margin: 0 auto;
           }
           
+          #video{
+            display: block;
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+          }
           
+          .insta-button {
+            display: inline-block;
+            align-items: center;
+            margin: 30px auto;
+            padding: 10px 10px;
+            color: white;
+            border: none;
+            font-size: 24px;
+            text-decoration: none;
+          }
+          
+          .insta-button:hover {
+            color: #999;
+          }
           
     }
 
-    @media screen and (max-width: 479px){
-        .main-page{
-            width: 100%;
-            position: absolute;
-        }
+/*またもやスマホ用*/
 
+    @media screen and (max-width: 479px){
+        
         #poster{
             width:100%;
             height:auto;
         }
+
+        .split-screen {
+            flex-direction: column; /* ← 縦並びに変更 */
+            width: 100%;
+            height: auto;           /* 高さを自動に */
+          }
+        
+          .left-panel,
+          .right-panel {
+            width: 100%;            /* 幅を全体に */
+            height: auto;           /* 高さも自動に */
+            max-height: none;       /* スクロール制限も解除 */
+            overflow-y: visible;    /* スクロール不要なら解除 */
+            text-align: center;
+          }
+
+    /* #region ナビゲーションバー */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10vh;
+            background: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 1em;
+            z-index: 1;
+        }
+        
+        /* ハンバーガー */
+        .hamburger {
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* サイドメニュー */
+        .side-menu {
+            position: fixed;
+            top: 10vh; /* ナビバーの下 */
+            left: -200px;
+            width: 200px;
+            height: 100%;
+            background: #000;
+            transition: left 0.3s ease;
+            padding-top: 1em;
+            z-index: 999;
+        }
+        
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .side-menu li {
+            margin: 1em;
+        }
+        
+        .side-menu a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* メニューが開いた時 */
+        .side-menu.open {
+            left: 0;
+        }
+        
+        /* 本文パディング調整 */
+        main {
+            padding-top: 10vh;
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        /*#endregion*/
+        
+        p{
+            color: white;
+          }
+
+          #logo{
+            display: block;
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+          }
+
+          #video{
+            display: block;
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+          }
+
+          .insta-button {
+            display: inline-block;
+            align-items: center;
+            margin: 30px auto;
+            padding: 10px 10px;
+            color: white;
+            border: none;
+            font-size: 24px;
+            text-decoration: none;
+          }
+          
+          .insta-button:hover {
+            color: #999;
+          }
     }
